@@ -1,0 +1,21 @@
+server:
+  port: 8170
+spring:
+  application:
+    name: stock-db-service
+  data:
+    mongodb:
+      host: localhost
+      database: stocks
+      port: 27017
+      repositories:
+        enabled: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8110/eureka/

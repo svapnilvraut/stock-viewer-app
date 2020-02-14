@@ -1,0 +1,26 @@
+server:
+  port: 8110
+
+spring:
+  application:
+    name: stock-eureka-service
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  instance:
+    hostname: localhost
+
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+  routes:
+#    db-service: # Commenting to prevent the direct access to db service from web client
+#      path: /stock-db-service/**
+#      url: http://localhost:8100
+    stock-service:
+      path: /stock-service/**
+      url: http://localhost:8101
